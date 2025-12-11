@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = 443;
 
 app.use(cors({
   origin: 'https://gestionpatienthld.netlify.app',

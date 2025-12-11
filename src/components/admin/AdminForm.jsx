@@ -48,11 +48,11 @@ const AdminForm = ({ adminToEdit, onAdminUpdated, onAdminAdded, adminsCount }) =
     }
     try {
       if (adminToEdit) {
-        await axios.put(`https://82.165.15.45:3000/admins/${adminToEdit.id}`, formData);
+        await axios.put(`https://82.165.15.45:443/admins/${adminToEdit.id}`, formData);
         setSuccess("Administrateur modifié avec succès !");
         onAdminUpdated();
       } else {
-        await axios.post('https://82.165.15.45:3000/admins', formData);
+        await axios.post('https://82.165.15.45:443/admins', formData);
         setSuccess("Administrateur ajouté avec succès !");
         onAdminAdded();
       }

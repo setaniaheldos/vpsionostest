@@ -53,9 +53,9 @@ export default function Rendezvous() {
     setLoading(true);
     try {
       const [rdvRes, patRes, pratRes] = await Promise.all([
-        axios.get('https://82.165.15.45:3000/rendezvous'),
-        axios.get('https://82.165.15.45:3000/patients'),
-        axios.get('https://82.165.15.45:3000/praticiens')
+        axios.get('https://82.165.15.45:443/rendezvous'),
+        axios.get('https://82.165.15.45:443/patients'),
+        axios.get('https://82.165.15.45:443/praticiens')
       ]);
       setRdvs(rdvRes.data);
       setPatients(patRes.data);
@@ -105,8 +105,8 @@ export default function Rendezvous() {
     }
 
     const url = isEditing
-      ? `https://82.165.15.45:3000/rendezvous/${form.idRdv}`
-      : 'https://82.165.15.45:3000/rendezvous';
+      ? `https://82.165.15.45:443/rendezvous/${form.idRdv}`
+      : 'https://82.165.15.45:443/rendezvous';
 
     const method = isEditing ? 'put' : 'post';
 
@@ -138,7 +138,7 @@ export default function Rendezvous() {
     if (!window.confirm("Supprimer ce rendez-vous ?")) return;
 
     try {
-      await axios.delete(`https://82.165.15.45:3000/rendezvous/${id}`);
+      await axios.delete(`https://82.165.15.45:443/rendezvous/${id}`);
       notify("Rendez-vous supprimé");
       fetchAllData();
     } catch (err) {
@@ -148,7 +148,7 @@ export default function Rendezvous() {
 
   const handleQuickStatusUpdate = async (id, newStatus) => {
     try {
-      await axios.put(`https://82.165.15.45:3000/rendezvous/${id}`, { statut: newStatus });
+      await axios.put(`https://82.165.15.45:443/rendezvous/${id}`, { statut: newStatus });
       notify(`Rendez-vous ${newStatus === 'confirme' ? 'confirmé' : 'annulé'} !`);
       fetchAllData();
     } catch (err) {

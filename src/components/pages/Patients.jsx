@@ -55,7 +55,7 @@ export default function Patients() {
   // Fetch data
   const fetchPatients = () => {
     setLoading(true);
-    axios.get('https://82.165.15.45:3000/patients')
+    axios.get('https://82.165.15.45:443/patients')
       .then(res => {
         setPatients(res.data);
         calculateStats(res.data);
@@ -84,7 +84,7 @@ export default function Patients() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const url = `https://82.165.15.45:3000/patients${isEditing ? '/' + formData.idPatient : ''}`;
+    const url = `https://82.165.15.45:443/patients${isEditing ? '/' + formData.idPatient : ''}`;
     const method = isEditing ? 'put' : 'post';
     
     if (formData.age && (isNaN(formData.age) || formData.age < 0 || formData.age > 120)) {
@@ -173,7 +173,7 @@ export default function Patients() {
 
   const handleDelete = (idPatient) => {
     if (window.confirm("⚠️ ATTENTION : La suppression est définitive. Voulez-vous vraiment continuer ?")) {
-      axios.delete(`https://82.165.15.45:3000/patients/${idPatient}`)
+      axios.delete(`https://82.165.15.45:443/patients/${idPatient}`)
         .then(() => {
           fetchPatients();
           handleSuccess("Patient supprimé avec succès.");

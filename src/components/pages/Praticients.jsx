@@ -66,7 +66,7 @@ export default function Praticiens() {
   // Fetch data
   const fetchPraticiens = () => {
     setLoading(true);
-    axios.get('https://82.165.15.45:3000/praticiens')
+    axios.get('https://82.165.15.45:443/praticiens')
       .then(res => {
         setPraticiens(res.data);
         calculateStats(res.data);
@@ -109,7 +109,7 @@ export default function Praticiens() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const method = isEditing ? 'put' : 'post';
-    const url = `https://82.165.15.45:3000/praticiens${isEditing ? '/' + formData.cinPraticien : ''}`;
+    const url = `https://82.165.15.45:443/praticiens${isEditing ? '/' + formData.cinPraticien : ''}`;
 
     axios[method](url, formData)
       .then(() => {
@@ -154,7 +154,7 @@ export default function Praticiens() {
 
   const handleDelete = (cinPraticien) => {
     if (window.confirm("⚠️ ATTENTION : La suppression est définitive. Voulez-vous vraiment continuer ?")) {
-      axios.delete(`https://82.165.15.45:3000/praticiens/${cinPraticien}`)
+      axios.delete(`https://82.165.15.45:443/praticiens/${cinPraticien}`)
         .then(() => {
           fetchPraticiens();
           handleSuccess("Praticien supprimé avec succès.");
@@ -188,7 +188,7 @@ export default function Praticiens() {
 
     if (window.confirm(`⚠️ Supprimer ${selectedPraticiens.length} praticien(s) sélectionné(s) ?`)) {
       const deletePromises = selectedPraticiens.map(cin => 
-        axios.delete(`https://82.165.15.45:3000/praticiens/${cin}`)
+        axios.delete(`https://82.165.15.45:443/praticiens/${cin}`)
       );
 
       Promise.all(deletePromises)
