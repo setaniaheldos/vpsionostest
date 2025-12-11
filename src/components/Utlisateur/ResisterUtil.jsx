@@ -25,7 +25,7 @@ const ResisterUtil = () => {
     }
     setLoading(true);
     try {
-      const res = await axios.post('https://82.165.15.45:443/register', {
+      const res = await axios.post('http://82.165.15.45:3000/register', {
         email: form.email,
         password: form.password,
       });

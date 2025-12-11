@@ -11,7 +11,7 @@ const AdminAction = () => {
   const fetchPendingUsers = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('https://82.165.15.45:3000/users/pending');
+      const res = await axios.get('http://82.165.15.45:3000/users/pending');
       setPendingUsers(res.data);
     } catch (err) {
       setMessage("Erreur lors du chargement des utilisateurs.");
@@ -26,7 +26,7 @@ const AdminAction = () => {
   // Valider un utilisateur
   const approveUser = async (id) => {
     try {
-      await axios.put(`https://82.165.15.45:443/users/${id}/approve`);
+      await axios.put(`http://82.165.15.45:3000/users/${id}/approve`);
       setMessage("Utilisateur validé avec succès !");
       setPendingUsers(pendingUsers.filter(u => u.id !== id));
       setTimeout(() => setMessage(''), 2000);
@@ -38,7 +38,7 @@ const AdminAction = () => {
   // Refuser/supprimer un utilisateur
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`https://82.165.15.45:443/users/${id}`);
+      await axios.delete(`http://82.165.15.45:3000/users/${id}`);
       setMessage("Utilisateur supprimé.");
       setPendingUsers(pendingUsers.filter(u => u.id !== id));
       setTimeout(() => setMessage(''), 2000);

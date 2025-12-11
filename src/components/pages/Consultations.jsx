@@ -30,7 +30,7 @@ import {
 
 // Constantes
 const PAGE_SIZE = 8;
-const API_BASE_URL = 'https://82.165.15.45:443';
+const API_BASE_URL = 'http://82.165.15.45:3000';
 
 export default function Consultations() {
   // --- États des données ---
