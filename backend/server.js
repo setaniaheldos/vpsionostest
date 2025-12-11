@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const cors = require('cors');
 
 const app = express();
-const PORT = 443;
+const PORT = 3000;
 
 app.use(cors({
   origin: 'https://gestionpatienthld.netlify.app',
@@ -683,5 +683,7 @@ app.put('/rendezvous/:id', async (req, res) => {
 // ...existing code...
 // Démarrer serveur
 app.listen(PORT,'0.0.0.0', () => {
-  console.log(`🚀 Serveur lancé sur http://82.165.15.45:${PORT}`);
+  // console.log(`🚀 Serveur lancé sur https://82.165.15.45:${PORT}`);
+  console.log(`🚀 Serveur Express lancé sur http://0.0.0.0:${PORT}`); 
+  console.log(`(Accessible publiquement via NGINX sur https://82.165.15.45)`);
 });
