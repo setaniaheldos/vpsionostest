@@ -12,7 +12,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3001/register', form);
+      const res = await axios.post('http://82.165.15.45:3000/register', form);
       setMessage(res.data.message);
       setError('');
     } catch (err) {

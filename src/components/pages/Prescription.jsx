@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
-const API_BASE_URL = 'http://localhost:3001';
+const API_BASE_URL = 'http://82.165.15.45:3000';
 
 // --- Hook Toast Personnalisé ---
 const useToast = () => {

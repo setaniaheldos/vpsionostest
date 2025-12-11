@@ -62,9 +62,9 @@ export default function Dashboard() {
       
       // Récupérer toutes les données
       const [patientsRes, consultationsRes, praticiensRes] = await Promise.all([
-        axios.get('http://localhost:3001/patients'),
-        axios.get('http://localhost:3001/consultations'),
-        axios.get('http://localhost:3001/praticiens')
+        axios.get('http://82.165.15.45:3000/patients'),
+        axios.get('http://82.165.15.45:3000/consultations'),
+        axios.get('http://82.165.15.45:3000/praticiens')
       ]);
 
       const patients = patientsRes.data;

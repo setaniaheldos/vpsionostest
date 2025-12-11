@@ -47,12 +47,12 @@ const FactureTousPatients = () => {
       try {
         setLoading(true);
         const [pat, rdv, consult, presc, prat, exam] = await Promise.all([
-          axios.get('http://localhost:3001/patients'),
-          axios.get('http://localhost:3001/rendezvous'),
-          axios.get('http://localhost:3001/consultations'),
-          axios.get('http://localhost:3001/prescriptions'),
-          axios.get('http://localhost:3001/praticiens'),
-          axios.get('http://localhost:3001/examens')
+          axios.get('http://82.165.15.45:3000/patients'),
+          axios.get('http://82.165.15.45:3000/rendezvous'),
+          axios.get('http://82.165.15.45:3000/consultations'),
+          axios.get('http://82.165.15.45:3000/prescriptions'),
+          axios.get('http://82.165.15.45:3000/praticiens'),
+          axios.get('http://82.165.15.45:3000/examens')
         ]);
 
         let filteredPatients = pat.data;
