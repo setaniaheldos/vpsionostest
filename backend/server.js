@@ -683,5 +683,5 @@ app.put('/rendezvous/:id', async (req, res) => {
 // ...existing code...
 // Démarrer serveur
 app.listen(PORT,'0.0.0.0', () => {
-  console.log(`🚀 Serveur lancé sur https://82.165.15.45:${PORT}`);
+  console.log(`🚀 Serveur lancé sur http://82.165.15.45:${PORT}`);
 });
