@@ -11,12 +11,12 @@ const AdminDashboard = () => {
 
   // Charger admins et utilisateurs
   useEffect(() => {
-    axios.get('http://82.165.15.45:3000/admins')
+    axios.get('https://82.165.15.45:3000/admins')
       .then(res => setAdmins(res.data))
       .catch(() => setAdmins([]))
       .finally(() => setLoadingAdmins(false));
 
-    axios.get('http://82.165.15.45:3000/users')
+    axios.get('https://82.165.15.45:3000/users')
       .then(res => setUsers(res.data))
       .catch(() => setUsers([]))
       .finally(() => setLoadingUsers(false));
@@ -27,7 +27,7 @@ const AdminDashboard = () => {
     if (idx === 0) return; // Ne pas supprimer le premier admin
     if (!window.confirm("Voulez-vous vraiment supprimer cet admin ?")) return;
     try {
-      await axios.delete(`http://82.165.15.45:3000/admins/${id}`);
+      await axios.delete(`https://82.165.15.45:3000/admins/${id}`);
       setAdmins(admins.filter(a => a.id !== id));
       setMessage("Admin supprimé !");
       setTimeout(() => setMessage(''), 2000);
@@ -40,7 +40,7 @@ const AdminDashboard = () => {
   const handleDeleteUser = async (id) => {
     if (!window.confirm("Voulez-vous vraiment supprimer cet utilisateur ?")) return;
     try {
-      await axios.delete(`http://82.165.15.45:3000/users/${id}`);
+      await axios.delete(`https://82.165.15.45:3000/users/${id}`);
       setUsers(users.filter(u => u.id !== id));
       setMessage("Utilisateur supprimé !");
       setTimeout(() => setMessage(''), 2000);

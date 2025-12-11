@@ -17,6 +17,8 @@ import AdminDAs from './components/admin/AdminDashboard';
 import Consultations from './components/pages/Consultations';
 import Prescription from './components/pages/Prescription';
 import Examen from './components/pages/Examen';
+
+
 // import Consultation from './components/pages/Consultations';
 
 export default function App() {
