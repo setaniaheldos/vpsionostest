@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -680,6 +680,18 @@ app.put('/rendezvous/:id', async (req, res) => {
 
 // ...existing code...
 // Démarrer serveur
-app.listen(PORT, () => {
-  console.log(`🚀 Serveur lancé sur http://82.165.15.45:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log('\nSERVEUR LANCÉ !\n');
+  console.log('\x1b[32m%s\x1b[0m', `http://localhost:${PORT}`);                    // vert
+  console.log('\x1b[36m%s\x1b[0m', `http://82.165.15.45:${PORT}`);               // cyan
+  console.log('\x1b[35m%s\x1b[0m', `https://82.165.15.45      ← via Nginx HTTPS`); // magenta
+  console.log('\n');
+});
+
+// Fermeture propre
+process.on('SIGINT', () => {
+  db.close(() => {
+    console.log('Base fermée. Bye !');
+    process.exit(0);
+  });
 });
